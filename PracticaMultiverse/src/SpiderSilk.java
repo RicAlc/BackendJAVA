@@ -1,29 +1,39 @@
 public class SpiderSilk extends Spiderhero implements SpiderSilkPowers{
     boolean superFlexibilidad = true;
-    Screen screen2 = new Screen();
-    String img  =  "silk.jpg";
-    public void Combo(){
-        screen2.setBounds(0, 0, 1820, 1000);
-        screen2.setVisible(true);
-        screen2.out("SpiderSilk \n");
-        screen2.showImage(img);
-        TrampaSeda();
-        CorteTelarana();
-        AtaqueRapido();
+
+
+    public SpiderSilk(String name, String file, int fuerza, int resistencia, int inteligencia) {
+        super(name, file, fuerza, resistencia, inteligencia);
     }
 
+    public void run() {
+        spider.setTitle(name);
+        spider.changeStyle("Georgia bold", 20, Colors.Desire);
+        spider.out("\n\n!" + name + " Ataca!");
+        try{
+            Thread.sleep(1500);
+            TrampaSeda();
+            Thread.sleep(1000);
+            CorteTelarana();
+            Thread.sleep(1000);
+            AtaqueRapido();
+        }catch (InterruptedException ie){
+            ie.printStackTrace();
+        }
+
+    }
     public void TrampaSeda() {
+        spider.out("\nSilk lanza una telaraña que inmobiliza a oponente\n");
         System.out.println("Silk lanza una telaraña que inmobiliza a oponente");
-        screen2.out("\nSilk lanza una telaraña que inmobiliza a oponente\n");
     }
 
     public void CorteTelarana() {
-        screen2.out("Silk lanza una telaraña afilada\n");
+        spider.out("Silk lanza una telaraña afilada\n");
         System.out.println("Silk lanza una telaraña afilada");
     }
 
     public void AtaqueRapido() {
-        screen2.out("Silk se mueve a gran velocidad y golpea\n");
+        spider.out("Silk se mueve a gran velocidad y golpea\n");
         System.out.println("Silk se mueve a gran velocidad y golpea");
     }
 }
